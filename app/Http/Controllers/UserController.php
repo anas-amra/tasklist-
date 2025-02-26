@@ -14,7 +14,9 @@ class UserController extends Controller
     }
     public function create(){
         $user_name = $_POST['username'];
-        DB::table('users')->insert(['username' => $user_name]);
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        DB::table('users')->insert(['username' => $user_name, 'email' => $email, 'password' => $password]);
         return redirect()->back();
     }
     public function destroy($id){
@@ -30,7 +32,9 @@ class UserController extends Controller
     public function update(){
         $id = $_POST['id'];
         $user_name = $_POST['username'];
-       DB::table('users')->where('id',$id)->update(['username' => $user_name]);
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+       DB::table('users')->where('id',$id)->update(['username' => $user_name,'email' => $email,'password' => $password]);
        return redirect('users');
 
    }

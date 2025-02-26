@@ -16,8 +16,18 @@
                         <input type="hidden" name="id" value="{{$user->id}}">
                         <!-- User Name -->
                         <div class="mb-3">
-                            <label for="user-name" class="form-label">User</label>
+                            <label for="user-name" class="form-label">UserName</label>
                             <input type="text" name="username" id="user-name" class="form-control" value="{{$user->username}}">
+                        </div>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="{{$user->email}}">
+                        </div>
+                        <!-- password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" name="password" id="password" class="form-control" value="{{$user->password}}">
                         </div>
 
                         <!-- Update User Button -->
@@ -41,8 +51,19 @@
                         @method('POST')
                         <!-- User Name -->
                         <div class="mb-3">
-                            <label for="user-name" class="form-label">User</label>
+                            <label for="user-name" class="form-label">UserName</label>
                             <input type="text" name="username" id="user-name" class="form-control" value="">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="">
+                        </div>
+                        <!-- password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Passowrd</label>
+                            <input type="password" name="password" id="password" class="form-control" value="">
                         </div>
 
                         <!-- Add User Button -->
@@ -66,7 +87,9 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>User</th>
+                                <th>UserName</th>
+                                <th>Email</th>
+                                <th>Password</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -75,6 +98,8 @@
 
                             <tr>
                                 <td>{{$user->username}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->password}}</td>
                                 <td>
                                     <form action="/users/delete/{{$user->id}}" method="POST" class="d-inline">
                                         @csrf
